@@ -1,0 +1,8 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    username: {{ username }}<br>
+    E-mail: {{ email }}<br>
+    {{ user.get_date_joined}}
+    {{ date_joined}}
+{% endblock %}

@@ -1,0 +1,25 @@
+body {
+    padding: 10px;
+}
+.flex-container > div {
+    background-color: #dad7d7;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+#create_listing{
+    font-family: 'san-serif', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .widthSet {
+    max-width: 64px;
+}
+
+.heightSet {
+    max-height: 64px;
+} */
+
+  

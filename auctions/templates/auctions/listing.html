@@ -1,0 +1,34 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+        <ul>
+                <h2 class="">Item: {{item.name}}</h2>
+            
+                {% comment %} <img class="image" src="{{ item.image.url }}" width="250" height="250"> {% endcomment %}
+
+                <img class="zoom" src="{{ item.image.url }}" height="200" />
+
+                
+                <h3>{{item.price}}$</h3>
+                <h5>{{item.catagories}}</h5>
+                <h6>{{item.description}}</h6>
+                <h4>posted by <a href= "{% url 'user' user=item.owner %}">{{ item.owner }}</a> on {{item.post_date}} </h4> 
+            
+            <br>
+            <hr>
+        
+            <h4 class ="test">comments:</h4>
+            {% for comment in comments %}
+            {% if item.name == comment.post.name %}
+                    <h5 class="text-muted">{{comment.own}}: {{comment.body}}</h5>
+            {% endif %}
+            {% endfor %}
+            
+            <form action = "" method="post" style="margin-top: 1.3em;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary  btn-lg">comment</button>
+            </form>
+            
+        </ul>
+{% endblock %}

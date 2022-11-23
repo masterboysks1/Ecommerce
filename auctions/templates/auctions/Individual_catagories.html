@@ -1,0 +1,18 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>catagory: {{category}}</h2>
+        <ul>
+            {% for item in items %}
+            {% if category in item.catagories %}
+                <h3>{{item.name}}</h3>
+                <img src="{{ item.image.url }}" width="250" height="250">
+                <h3>{{item.price}}</h3>
+                <h5>{{item.catagories}}</h5>
+                <h3>{{item.description}}</h3>
+                <div></div>
+                <hr>
+                {% endif %}
+            {% endfor %}
+        </ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'auctions/layout.html' %}
+{% block body %}
+    <h2>Create listing</h2>
+    
+    
+    <div id='create_listing'>
+    <form class="form-horizontal form_middle" enctype='multipart/form-data' action="{% url 'create_listing' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% comment %} 
+    <div class="row">
+    <div class="col">
+    Name <input class="form-control" type="text" name="name"></input>
+    </div>
+    </div>
+    <br>
+
+    <div class="row">
+    <div class="col">
+    Price <input class="form-control" type="number" name="price"></input>
+    </div>
+    </div>
+    <br>
+
+    <div class="col-md-4">
+    <input type="file" id="img" name="image" accept="image/*">
+    </div>
+    <br>
+
+    <div class="form-group">
+    <label for="description">description</label>
+    <textarea class="form-control" id="description" name = "description" rows="3"></textarea>
+    </div>
+    <br>
+
+    <div class="col-md-4">
+    <select id="inputState" class="form-select" name = "catagories">
+      {% for item in items %}
+      <option value="item.catagories" name = "catagories">{{ item.catagories }}</option>
+      {% endfor %}
+      </select>
+    </div>
+    <br> {% endcomment %}
+
+    <div class="col-12">
+      <input type = "submit" class="btn btn-primary" value="save" name="submit">
+    </div>
+    <br>
+
+    </form>
+    </div> 
+{% endblock %}

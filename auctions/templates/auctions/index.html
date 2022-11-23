@@ -1,0 +1,27 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2 class="text-center text-xl">Active Listings</h2>
+<div class="grid lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-5">
+  {% for item in items %}
+  <div class="rounded-lg bg-green-100 p-3">
+    <div class="flex">
+      <div class="">
+        <div>
+          <a href="auctions/listing/{{item.id}} " class="capitalize font-bold"
+            >{{item.name}}</a
+          >
+        </div>
+        <img src="{{ item.image.url }}" width="250" height="250" />
+        <h3>Price: Rs. {{item.price}}</h3>
+        <div class="rounded-lg bg-green-700 w-fit capitalize px-3 text-white">
+          {{item.catagories}}
+        </div>
+      </div>
+      <div class="ml-3 mt-5">
+        <h3>Description:</h3>
+        <p class="pl-2">{{item.description}}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

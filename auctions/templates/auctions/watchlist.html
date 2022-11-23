@@ -1,0 +1,16 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+    <h2> watchlist of {{username}} </h2>
+    {% for watchlist in watchlists%}
+    {% if username in watchlist.watchlisted_by.username %}
+        <h3>{{watchlist.watchlist.name}}</h3>
+                <img src="{{ watchlist.watchlist.image.url }}" width="250" height="250">
+                <h3>{{watchlist.watchlist.price}}</h3>
+                <h5>{{watchlist.watchlist.catagories}}</h5>
+                <h3>{{watchlist.watchlist.description}}</h3>
+                <div></div>
+                <hr>
+    {% endif %}
+    {% endfor %}
+{% endblock %}
